@@ -22,7 +22,7 @@ app.post("/create", (req, res) => {
   const wage = req.body.wage;
 
   db.query(
-    "INSERT INTO employees (name, age, country, position, wage) VALUES (?,?,?,?,?)",
+    "INSERT INTO employees (id ,name, age, country, position, wage) VALUES (101,?,?,?,?,?)",
     [name, age, country, position, wage],
     (err, result) => {
       if (err) {
