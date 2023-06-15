@@ -14,7 +14,7 @@ function App() {
   const [employeeList, setEmployeeList] = useState([]);
 
   const addEmployee = () => {
-    Axios.post("http://localhost:7301/create", {
+    Axios.post("sem-project-alb-452073085.ap-southeast-2.elb.amazonaws.com/create", {
       name: name,
       age: age,
       country: country,
@@ -35,13 +35,13 @@ function App() {
   };
 
   const getEmployees = () => {
-    Axios.get("http://localhost:7301/employees").then((response) => {
+    Axios.get("sem-project-alb-452073085.ap-southeast-2.elb.amazonaws.com/employees").then((response) => {
       setEmployeeList(response.data);
     });
   };
 
   const updateEmployeeWage = (name) => {
-    Axios.put("http://localhost:7301/update", { wage: newWage, name: name }).then(
+    Axios.put("sem-project-alb-452073085.ap-southeast-2.elb.amazonaws.com/update", { wage: newWage, name: name }).then(
       (response) => {
         setEmployeeList(
           employeeList.map((val) => {
@@ -62,7 +62,7 @@ function App() {
   };
 
   const deleteEmployee = (name) => {
-    Axios.delete(`http://localhost:7301/delete/${name}`).then((response) => {
+    Axios.delete(`sem-project-alb-452073085.ap-southeast-2.elb.amazonaws.com/delete/${name}`).then((response) => {
       setEmployeeList(
         employeeList.filter((val) => {
           return val.name != name;
